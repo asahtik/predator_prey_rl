@@ -1,0 +1,113 @@
+[world]
+world_width = 50.0
+world_height = 25.0
+map = "maps/02"
+water_multiplier = 0.5
+forrest_vision_multiplier = 0.5
+batch_spawn_count = 5
+batch_spawn_radius = 2.0
+
+[camera]
+default_radius = 7.5
+translate_mouse_sensitivity = 0.03
+rotate_mouse_sensitivity = 0.01
+scroll_sensitivity = 1.0
+
+[rl]
+learn = false
+replay_buffer_size = 200
+layers = [100, 100, 100]
+learning_rate = 0.0001
+eps_step = 0.002
+eps_min = 0.0
+discount = 0.9
+sample_count = 100
+batch_size = 10
+frames_per_update = 80
+updates_per_target = 10
+updates_per_swap = 100
+num_updates = 1000
+updates_per_save = 1000
+updates_per_reset = 200
+save_path = "models/01_swap"
+load_path = "models/01_swap"
+
+[prey]
+count = 10
+size = 1.0
+wl_ratio = 0.3
+hl_ratio = 1.0
+walk_speed = 0.1
+walk_acceleration = 0.2
+run_speed = 0.2
+run_acceleration = 0.5
+deceleration = 0.5
+turn_speed = 0.1
+vision_range = 6.0
+vision_fov = 1.5
+vision_rays = 10
+hearing_range = 3.0
+hearing_rays = 20
+food_quantity = 0
+eating_speed = 0.1
+procreation_min_energy = 80.0
+procreation_attempt_energy_loss = 1.0
+procreation_energy_loss = 10.0
+tick_energy_loss = 0.01
+turn_energy_loss = 0.02
+walk_energy_loss = 0.03
+run_energy_loss = 0.06
+attack_energy_loss = 0.0
+life = 10000
+
+[predator]
+count = 6
+size = 0.8
+wl_ratio = 0.3
+hl_ratio = 0.8
+walk_speed = 0.1
+walk_acceleration = 0.2
+run_speed = 0.2
+run_acceleration = 0.4
+deceleration = 0.5
+turn_speed = 0.1
+vision_range = 6.0
+vision_fov = 0.8
+vision_rays = 8
+hearing_range = 3.0
+hearing_rays = 20
+eating_speed = 2.0
+food_quantity = 10
+procreation_min_energy = 80.0
+procreation_attempt_energy_loss = 1.0
+procreation_energy_loss = 10.0
+tick_energy_loss = 0.01
+turn_energy_loss = 0.02
+walk_energy_loss = 0.03
+run_energy_loss = 0.08
+attack_energy_loss = 5.0
+life = 10000
+
+[prey.rewards]
+tick = -0.01
+turn = 0.0
+walk = 0.0
+run = 0.0
+eat = 1.2
+procreation = 8.0
+death = -20.0
+detecting_prey = 0.0001
+detecting_predator = -0.0005
+detecting_food = 0.0002
+
+[predator.rewards]
+tick = -0.01
+turn = 0.0
+walk = 0.0
+run = 0.0
+eat = 1.6
+procreation = 10.0
+death = -20.0
+detecting_prey = 0.0001
+detecting_predator = 0.0001
+detecting_food = 0.0002

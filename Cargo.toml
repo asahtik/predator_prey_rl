@@ -1,0 +1,20 @@
+[package]
+name = "test1"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bevy = {version="0.10", features = ["dynamic_linking", "bmp"]}
+bevy_ui = {version="0.10"}
+bevy-inspector-egui = "0.18"
+bevy_mod_picking = "0.12"
+toml = "0.7.3"
+serde = {version = "1.0", features = ["derive"]}
+rand = "0.8.5"
+rand_distr = "0.4.3"
+rayon = "1.7"
+burn = "0.6.0"
+burn-ndarray = {version="0.6.0", features=["blas-openblas-system"]}
+burn-autodiff = "0.6.0"
